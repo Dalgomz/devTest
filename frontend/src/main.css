@@ -1,0 +1,40 @@
+
+.h-full {
+  height: 100%;
+}
+.w-full {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+  gap: .5rem;
+}
+.col {
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
+.space-between {
+  justify-content: space-between;
+}
+
+.wrap {
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.solid-border {
+  border: solid black 1px;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
