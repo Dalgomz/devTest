@@ -1,5 +1,5 @@
 <template>
-  <div @click="openItem" class="solid-border cursor-pointer flex col w-center padding-1">
+  <div @click="openItem" class="solid-border cursor-pointer flex col center padding-1">
     <img :src="item.imgUrl" class="list-image"></img>
     <div>
       {{item.brand}}
@@ -8,7 +8,7 @@
       {{item.model}}
     </div>
     <div>
-      {{item.price}} €
+      {{item.price || "-"}} €
     </div>
   </div>
 </template>

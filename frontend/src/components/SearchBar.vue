@@ -3,7 +3,7 @@
     <input 
       type="text"
       :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
+      @input="$emit('update:modelValue', $event.target.value === '' ? null : $event.target.value)"
     />
     <searchIcon style="margin-left: 2px; height: 1.2rem; width: 1.2rem"/>
   </div>

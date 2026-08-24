@@ -13,12 +13,12 @@
       </div>
     </div>
     <div class="grow-1"/>
-    <button>
+    <div class="flex row v-center cursor-pointer solid-border" style="padding: 0 1rem;">
       <div class="w-full flex v-center">
         {{ cartItems }}
         <cartIcon style="height: 1.5rem; width: 1.5rem"/>
       </div>
-    </button>
+    </div>
   </div>
 </template>
 

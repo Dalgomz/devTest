@@ -1,8 +1,8 @@
 <template>
   <Header :breadcrumbs="[{label: 'Home'}]"/>
   <div class="w-full flex col">
-    <div class="w-full flex row space-between">
-      <div>list view</div>
+    <div class="w-full flex row space-between mt-3 mb-1">
+      <div />
       <SearchBar v-model="searchText"></SearchBar>
     </div>
     <div class="product-grid">
