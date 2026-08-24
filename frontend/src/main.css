@@ -19,6 +19,13 @@
   gap: .5rem;
 }
 
+.v-center {
+  align-items: center;
+}
+.h-center {
+  justify-content: center;
+}
+
 .center {
   align-items: center;
   justify-content: center;
@@ -32,9 +39,27 @@
   gap: .5rem;
 }
 
+.grow-0 {
+  flex-grow: 0;
+}
+.grow-1 {
+  flex-grow: 1;
+}
+
+.shrink-0 {
+  flex-shrink: 0;
+}
+.shrink-1 {
+  flex-shrink: 1;
+}
+
 .solid-border {
   border: solid black 1px;
 }
 .cursor-pointer {
   cursor: pointer;
+}
+
+.padding-1 {
+  padding: 0.5rem;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full">HEADER</div>
+  <Header :breadcrumbs="[{label: 'Home'}]"/>
   <div class="w-full flex col">
     <div class="w-full flex row space-between">
       <div>list view</div>
@@ -12,20 +12,36 @@
 </template>
 
 <script>
+import Header from '@/components/Header.vue';
 import SearchBar from '@/components/SearchBar.vue';
 import ShopItem from '@/components/ShopItem.vue';
 
+import api from '@/api';
+
 export default {
-  components: { SearchBar, ShopItem },
+  components: { Header, SearchBar, ShopItem },
+  mounted() {
+    this.getProducts();
+  },
   data() {
     return {
       searchText: null,
-      items: [{id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}, {id: 6}],
+      items: [],
     };
   },
   computed: {
     filteredItems() {
-      return this.items;
+      if (this.searchText == null || this.searchText === "") 
+        return this.items;
+      return this.items.filter((x) => {
+        return (x.brand.toLowerCase().includes(this.searchText) || x.model.toLowerCase().includes(this.searchText))
+      });
+    }
+  },
+  methods: {
+    async getProducts() {
+      this.items = [];
+      this.items = await api.getProducts();
     }
   },
 }

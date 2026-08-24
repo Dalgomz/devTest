@@ -1,19 +1,22 @@
 <template>
-  <div>
+  <div class="flex center">        
     <input 
       type="text"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
     />
-    <button @click="cleanSearch" v-if="!(modelValue == null || modelValue === '')">clear</button>
+    <searchIcon style="margin-left: 2px; height: 1.2rem; width: 1.2rem"/>
   </div>
 </template>
 
 <script>
+import searchIcon from '@/assets/search.svg?component';
+
 export default {
+  components: { searchIcon },
   emits: ['update:modelValue'],
   props: {
-    modelValue: { type: Text, default: () => null },
+    modelValue: { type: String, default: () => null },
   },
   methods: {
     cleanSearch() {
