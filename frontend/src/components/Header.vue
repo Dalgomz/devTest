@@ -15,7 +15,7 @@
     <div class="grow-1"/>
     <div class="flex row v-center cursor-pointer solid-border" style="padding: 0 1rem;">
       <div class="w-full flex v-center">
-        {{ cartItems }}
+        {{ cartCount }}
         <cartIcon style="height: 1.5rem; width: 1.5rem"/>
       </div>
     </div>
@@ -25,6 +25,7 @@
 <script>
 import appIcon from '@/assets/appLogo.svg?component';
 import cartIcon from '@/assets/cart.svg?component';
+import { useCartStore } from '@/stores/cart';
 import { RouterLink } from 'vue-router';
 
 export default {
@@ -32,10 +33,10 @@ export default {
   props: {
     breadcrumbs: {type: Array, default: () => []},
   },
-  data() {
-    return {
-      cartItems: 0,
-    };
+  computed: {
+      cartCount() {
+        return useCartStore().cartCount;
+    },
   },
   methods: {
     navHome() {

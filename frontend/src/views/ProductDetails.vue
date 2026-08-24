@@ -36,7 +36,7 @@
           {{color.name}}
         </option>
       </select>
-      <button @addItem="">Add to cart</button>
+      <button @click="addToCart">Add to cart</button>
     </div>
   </div>
 </template>
@@ -44,6 +44,7 @@
 <script>
 import Header from '@/components/Header.vue';
 import backIcon from '@/assets/back.svg?component';
+import { useCartStore } from '@/stores/cart';
 
 import api from "@/api";
 import router from '@/router';
@@ -76,6 +77,7 @@ export default {
         storages: [], 
         colors: [],
       },
+      cartStore: useCartStore(),
       storage: null,
       color: null,
     };
@@ -88,6 +90,11 @@ export default {
       this.storage = this.options.storages[0];
       this.color = this.options.colors[0];
       this.descriptionProperties = descProps.filter((d) => this.item[d.prop]);
+    },
+    async addToCart() {
+      const itemObj = {id: this.item.id, colorCode: this.color.code, storageCode: this.storage.code };
+      const response = await api.addToCart(itemObj);
+      this.cartStore.setItems(response.count);
     }
   }
 }
