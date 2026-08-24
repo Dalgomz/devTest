@@ -1,5 +1,11 @@
 <template>
   <Header :breadcrumbs="[{label: 'Home', path: '/'}, {label: item.model}]"></Header>
+  <div style="margin: 1rem">
+    <button style="padding: .5rem;" class="solid-border cursor-pointer flex v-center shrink-1" @click="$router.go(-1)">
+      <backIcon style="height: 1rem; width: 1rem; margin-right: .5rem;"/>
+      BACK
+    </button>
+  </div>
   <div class="w-full flex row">
     <div class="flex w-50" >
       <img :src="item.imgUrl" style="margin: 0 auto"></img>
@@ -37,26 +43,28 @@
 
 <script>
 import Header from '@/components/Header.vue';
-import products from '@/mocks/products.json';
+import backIcon from '@/assets/back.svg?component';
+
 import api from "@/api";
+import router from '@/router';
 
 const descProps = [
-      {label: "Brand", prop: "brand"},
-      {label: "Model", prop: "model"},
-      {label: "Price", prop: "price"},
-      {label: "Cpu", prop: "cpu"},
-      {label: "Ram", prop: "ram"},
-      {label: "Operative System", prop: "os"},
-      {label: "Display Resolution", prop: "displayResolution"},
-      {label: "Battery", prop: "battery"},
-      {label: "Primary Camera", prop: "primaryCamera"},
-      {label: "Secondary Camera", prop: "secondaryCmera"},
-      {label: "Size", prop: "dimentions"},
-      {label: "Weight", prop: "weight"},
+  {label: "Brand", prop: "brand"},
+  {label: "Model", prop: "model"},
+  {label: "Price", prop: "price"},
+  {label: "Cpu", prop: "cpu"},
+  {label: "Ram", prop: "ram"},
+  {label: "Operative System", prop: "os"},
+  {label: "Display Resolution", prop: "displayResolution"},
+  {label: "Battery", prop: "battery"},
+  {label: "Primary Camera", prop: "primaryCamera"},
+  {label: "Secondary Camera", prop: "secondaryCmera"},
+  {label: "Size", prop: "dimentions"},
+  {label: "Weight", prop: "weight"},
 ]
 
 export default {
-  components: { Header },
+  components: { Header, backIcon },
   created() {
     this.getItemDetails();
   },
