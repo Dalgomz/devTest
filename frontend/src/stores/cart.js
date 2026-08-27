@@ -7,7 +7,7 @@ export const useCartStore = defineStore('cart', {
   getters: {
   },
   actions: {
-    addItem(item) {
+    addItem() {
       this.cartCount += 1;
     },
     removeItem() {

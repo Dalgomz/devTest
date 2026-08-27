@@ -1,7 +1,7 @@
 <template>
   <Header :breadcrumbs="[{label: 'Home', path: '/'}, {label: item.model}]"></Header>
   <div style="margin: 1rem">
-    <button style="padding: .5rem;" class="solid-border cursor-pointer flex v-center shrink-1" @click="$router.go(-1)">
+    <button style="padding: .5rem;" class="solid-border cursor-pointer flex v-center shrink-1" @click="goBack">
       <backIcon style="height: 1rem; width: 1rem; margin-right: .5rem;"/>
       BACK
     </button>
@@ -47,7 +47,6 @@ import backIcon from '@/assets/back.svg?component';
 import { useCartStore } from '@/stores/cart';
 
 import api from "@/api";
-import router from '@/router';
 
 const descProps = [
   {label: "Brand", prop: "brand"},
@@ -95,6 +94,9 @@ export default {
       const itemObj = {id: this.item.id, colorCode: this.color.code, storageCode: this.storage.code };
       const response = await api.addToCart(itemObj);
       this.cartStore.setItems(response.count);
+    },
+    goBack() {
+      this.$router.go(-1);
     }
   }
 }

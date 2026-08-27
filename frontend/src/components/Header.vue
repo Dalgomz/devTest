@@ -26,7 +26,6 @@
 import appIcon from '@/assets/appLogo.svg?component';
 import cartIcon from '@/assets/cart.svg?component';
 import { useCartStore } from '@/stores/cart';
-import { RouterLink } from 'vue-router';
 
 export default {
   components: {appIcon, cartIcon},
