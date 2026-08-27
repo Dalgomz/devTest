@@ -16,7 +16,6 @@ async function cachedApiCall(call, endpoint, options) {
     } catch {
       localStorage.removeItem(cacheKey)
     }
-    return cached;
   }
 
   const response = await call(endpoint, options);
